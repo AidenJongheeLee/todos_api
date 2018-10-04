@@ -7,9 +7,14 @@ class TodosController < ApplicationController
     json_response(@todos)
   end
 
+  #GET /todos/:id
+  def show
+    json_response(@todo)
+  end
+
   #POST /todos
   def create
-    @todos = Todo.create!(todo_params)
+    @todo = Todo.create!(todo_params)
     json_response(@todo, :created)
   end
 
@@ -21,7 +26,7 @@ class TodosController < ApplicationController
 
   #DELETE /todos/:id
   def destroy
-    @todos.destroy
+    @todo.destroy
     head :no_content
   end
 

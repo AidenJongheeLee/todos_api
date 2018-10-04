@@ -34,7 +34,7 @@ RSpec.describe 'Todos API', type: :request do
     end
 
     context 'when record does not exist' do
-      let(:tod_id) { 100 }
+      let(:todo_id) { 100 }
 
       it 'returns status code 404' do
         expect(response).to have_http_status(404)
@@ -57,7 +57,7 @@ RSpec.describe 'Todos API', type: :request do
         expect(json['title']).to eq('Learn Elm')
       end
 
-      it 'return status code 201' do
+      it 'returns status code 201' do
         expect(response).to have_http_status(201)
       end
     end
@@ -93,7 +93,7 @@ RSpec.describe 'Todos API', type: :request do
   end
 
   describe 'DELETE /todos/:id' do
-    before { delete "todos/#{todo_id}" }
+    before { delete "/todos/#{todo_id}" }
 
     it 'returns status code 204' do
       expect(response).to have_http_status(204)
